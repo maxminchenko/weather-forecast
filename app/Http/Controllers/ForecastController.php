@@ -10,8 +10,8 @@ class ForecastController extends Controller
 {
     public function searchForecast(ForecastRequest $request): array
     {
-        $city = $request->validated();
-        $forecast = new ForecastService();
-        return $forecast->getForecast($city['lat'], $city['lon']);
+        $validated = $request->validated();
+        $forecast_service = new ForecastService();
+        return $forecast_service->getForecast($validated['lat'], $validated['lon']);
     }
 }
